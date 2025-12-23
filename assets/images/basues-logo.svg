@@ -1,0 +1,18 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Yellow background with rounded corners -->
+  <rect width="120" height="120" rx="24" ry="24" fill="#FFD700"/>
+  
+  <!-- Stylized 'b' symbol (g-like shape: circular upper loop + thick curved stem) -->
+  <g transform="translate(60, 28)">
+    <!-- Circular upper loop (complete circle at top) -->
+    <circle cx="0" cy="-12" r="14" fill="none" stroke="#000000" stroke-width="11" stroke-linecap="round"/>
+    <!-- Thick vertical stem from loop -->
+    <line x1="0" y1="-12" x2="0" y2="8" stroke="#000000" stroke-width="11" stroke-linecap="round"/>
+    <!-- Curved bottom extending horizontally (g-like tail with flat base) -->
+    <path d="M 0 8 Q 0 20, 8 26 Q 12 28, 18 28 L 26 28" fill="none" stroke="#000000" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- "basues" text in bold lowercase -->
+  <text x="60" y="92" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle" letter-spacing="0.3">basues</text>
+</svg>
+
