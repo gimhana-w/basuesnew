@@ -10,7 +10,7 @@ if (!defined('SITE_NAME')) {
                 <?php
                 $base_path = (strpos($_SERVER['PHP_SELF'], '/pages/') !== false) ? '../' : '';
                 ?>
-                <img src="<?php echo $base_path; ?>assets/images/basues-logo.svg" alt="Basues Logo" class="footer-logo">
+                <img src="<?php echo $base_path; ?>assets/images/Baseus Logo with guides@2x.png" alt="Basues Logo" class="footer-logo">
                 <p><?php echo SITE_TAGLINE; ?></p>
                 <p class="footer-location">📍 Sri Lanka</p>
             </div>

@@ -59,6 +59,104 @@ include 'components/hero.php';
     </div>
 </section>
 
+<!-- Banner Section -->
+<section class="banner-section">
+    <?php
+    // Determine base path for image
+    $base_path = (strpos($_SERVER['PHP_SELF'], '/pages/') !== false) ? '../' : '';
+    ?>
+    <div class="banner-wrapper">
+        <img src="<?php echo $base_path; ?>assets/images/baner.jpg" alt="Banner" class="banner-image">
+    </div>
+</section>
+
+<!-- Cable Products Section -->
+<section class="cable-products-section">
+    <div class="container">
+        <div class="cable-products-grid">
+            <div class="cable-card">
+                <div class="cable-image-wrapper">
+                    <img src="<?php echo $base_path; ?>assets/images/cable/cable 1.png" alt="Cable 1" class="cable-image">
+                </div>
+            </div>
+            
+            <div class="cable-card">
+                <div class="cable-image-wrapper">
+                    <img src="<?php echo $base_path; ?>assets/images/cable/cable2.png" alt="Cable 2" class="cable-image">
+                </div>
+            </div>
+            
+            <div class="cable-card">
+                <div class="cable-image-wrapper">
+                    <img src="<?php echo $base_path; ?>assets/images/cable/cable3.png" alt="Cable 3" class="cable-image">
+                </div>
+            </div>
+            
+            <div class="cable-card">
+                <div class="cable-image-wrapper">
+                    <img src="<?php echo $base_path; ?>assets/images/cable/cable4.png" alt="Cable 4" class="cable-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Earbuds Features Section -->
+<section class="earbuds-features-section">
+    <div class="container">
+        <div class="earbuds-features-grid">
+            <!-- Top Left - Punchier Bass -->
+            <div class="earbuds-feature-card">
+                <div class="earbuds-feature-content">
+                    <h3 class="earbuds-feature-title">Punchier Bass</h3>
+                    <p class="earbuds-feature-value">50%</p>
+                    <div class="earbuds-feature-image-wrapper">
+                        <img src="<?php echo $base_path; ?>assets/images/hero/Baseus earbud 1.png" alt="Baseus Earbuds" class="earbuds-feature-image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Top Middle - Environmental Noise Cancelling Mics -->
+            <div class="earbuds-feature-card">
+                <div class="earbuds-feature-content">
+                    <h3 class="earbuds-feature-title">Environmental Noise Cancelling Mics</h3>
+                    <div class="earbuds-feature-image-wrapper">
+                        <img src="<?php echo $base_path; ?>assets/images/hero/Baseus earbud 1.png" alt="Noise Cancelling Earbud" class="earbuds-feature-image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Top Right - 12mm Oversized Drivers -->
+            <div class="earbuds-feature-card">
+                <div class="earbuds-feature-content">
+                    <p class="earbuds-feature-value">12mm</p>
+                    <h3 class="earbuds-feature-title">Oversized Drivers</h3>
+                    <div class="earbuds-feature-image-wrapper">
+                        <img src="<?php echo $base_path; ?>assets/images/hero/Baseus earbud 1.png" alt="12mm Driver" class="earbuds-feature-image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom - Battery Life (spans 2 columns) -->
+            <div class="earbuds-feature-card earbuds-feature-card-large">
+                <div class="earbuds-feature-content earbuds-feature-content-battery">
+                    <div class="battery-info">
+                        <p class="earbuds-feature-value">6H</p>
+                        <h3 class="earbuds-feature-title">Single Charge</h3>
+                    </div>
+                    <div class="battery-info">
+                        <p class="earbuds-feature-value">25H</p>
+                        <h3 class="earbuds-feature-title">with Charging Case</h3>
+                    </div>
+                    <div class="earbuds-feature-image-wrapper">
+                        <img src="<?php echo $base_path; ?>assets/images/hero/Baseus earbud 1.png" alt="Baseus Earbuds Case" class="earbuds-feature-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Features Section -->
 <section class="section">
     <div class="container">

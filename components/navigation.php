@@ -11,7 +11,7 @@ $base_path = (strpos($_SERVER['PHP_SELF'], '/pages/') !== false) ? '../' : '';
         <div class="nav-wrapper">
             <div class="logo">
                 <a href="<?php echo $base_path; ?>index.php" class="logo-link">
-                    <img src="<?php echo $base_path; ?>assets/images/basues-logo.svg" alt="Basues Logo" class="logo-image">
+                    <img src="<?php echo $base_path; ?>assets/images/Baseus Logo with guides@2x.png" alt="Basues Logo" class="logo-image">
                 </a>
             </div>
             <ul class="nav-menu" id="navMenu">

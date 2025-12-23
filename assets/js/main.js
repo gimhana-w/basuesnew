@@ -127,6 +127,53 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollObserver.observe(el);
         });
 
+        // New categories title - slide up
+        document.querySelectorAll('.categories-title-new').forEach(el => {
+            el.classList.add('scroll-animate', 'slide-up');
+            scrollObserver.observe(el);
+        });
+
+        // New category cards - left column slides from left, right column from right
+        document.querySelectorAll('.category-card-new').forEach((el, index) => {
+            el.classList.add('scroll-animate');
+            // For 2x2 grid: index 0,2 (left column) slide from left; index 1,3 (right column) slide from right
+            if (index % 2 === 0) {
+                el.classList.add('slide-left');
+            } else {
+                el.classList.add('slide-right');
+            }
+            // Add delay based on row (0,1 for top row, 2,3 for bottom row)
+            const row = Math.floor(index / 2);
+            el.style.transitionDelay = `${row * 0.2 + (index % 2) * 0.1}s`;
+            scrollObserver.observe(el);
+        });
+
+        // Banner section - slide up
+        document.querySelectorAll('.banner-section').forEach(el => {
+            el.classList.add('scroll-animate', 'slide-up');
+            scrollObserver.observe(el);
+        });
+
+        // Cable cards - alternate slide left and right with delay
+        document.querySelectorAll('.cable-card').forEach((el, index) => {
+            el.classList.add('scroll-animate');
+            if (index % 2 === 0) {
+                el.classList.add('slide-left');
+            } else {
+                el.classList.add('slide-right');
+            }
+            // Add delay based on index
+            el.style.transitionDelay = `${index * 0.1}s`;
+            scrollObserver.observe(el);
+        });
+
+        // Earbuds feature cards - slide up with delay
+        document.querySelectorAll('.earbuds-feature-card').forEach((el, index) => {
+            el.classList.add('scroll-animate', 'slide-up');
+            el.style.transitionDelay = `${index * 0.15}s`;
+            scrollObserver.observe(el);
+        });
+
         // Footer sections - slide up
         document.querySelectorAll('.footer-section').forEach((el, index) => {
             el.classList.add('scroll-animate', 'slide-up');
