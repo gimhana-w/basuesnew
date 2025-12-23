@@ -1,0 +1,1986 @@
+/* ============================================
+   Basues Premium Website - Main Stylesheet
+   ============================================ */
+
+/* CSS Variables for Premium Theme */
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #e94560;
+    --gold-accent: #fffb00;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    --text-dark: #000005;
+    --text-light: #ffffff;
+    --bg-dark: #000000;
+    --bg-light: #faf9f6;
+    --bg-cream: #f5f3ef;
+    --bg-navbar: #faf9f6;
+    --border-color: #e0e0e0;
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-gold: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.section-title h2 {
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.section-title p {
+    color: var(--text-secondary);
+}
+
+/* Top Bar */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text-dark);
+    z-index: 1001;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 2px;
+    left: 0;
+    right: 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1.2rem 0;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+    padding: 1rem 0;
+    background: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .logo-image {
+        height: 40px;
+    }
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    position: relative;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-dark);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.nav-menu a:hover {
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--text-dark);
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Hero Slider */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease-in-out, visibility 1.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Slide 1 - PicoGo Series Background */
+.hero-background-picogo {
+    background: linear-gradient(160deg, #ffffff 0%, #fcf6ac 70%, #ffec82 100%);
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    opacity: 0.3;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: -1;
+}
+
+/* Hero Product Images */
+.hero-products {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-product {
+    position: absolute;
+    object-fit: contain;
+    opacity: 0;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+    transition: var(--transition);
+}
+
+.hero-product:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Slide 2 monitor layout */
+.hero-background-monitor {
+    background: linear-gradient(90deg, #e9eef7 0%, #f5f7fb 100%);
+}
+
+.hero-products-monitor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.monitor-slide-image {
+    position: absolute;
+    top: 50%;
+    width: 52vw;
+    max-width: 780px;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.25));
+    transform: translateY(-50%);
+}
+
+/* ============================================
+   SLIDE 2 IMAGE POSITIONS - MANUAL ADJUSTMENT
+   Adjust left/right and width values below
+   ============================================ */
+
+.monitor-image-left {
+    left: -8vw;            /* Adjust horizontal offset (e.g., -8vw, -5vw, 0) */
+    transform: translate(-20vw, -50%) scaleX(-1); /* slides in from left */
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.monitor-image-right {
+    right: -8vw;           /* Adjust horizontal offset (e.g., -8vw, -5vw, 0) */
+    transform: translate(20vw, -50%); /* slides in from right */
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+/* Slide-in when slide is active */
+.hero-slide.active .monitor-image-left {
+    transform: translate(0, -50%) scaleX(-1);
+    opacity: 1;
+}
+
+.hero-slide.active .monitor-image-right {
+    transform: translate(0, -50%);
+    opacity: 1;
+}
+
+.hero-content-monitor {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title-monitor {
+    font-size: 3rem;
+}
+
+.hero-description-monitor {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+}
+
+/* Slide 3 - Headphones layout */
+.hero-background-headphones {
+    background: #000000 url("../images/hero/slide3/bacground.png") center center / cover no-repeat;
+}
+
+.hero-headphones-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.hero-content-headphones {
+    flex: 1;
+    text-align: left;
+    max-width: 1100px; /* Increased width of the text box */
+    width: 100%;
+}
+
+.hero-title-headphones .hero-title-line1,
+.hero-title-headphones .hero-title-line2 {
+    width: 600px;
+    color: var(--text-light);
+    opacity: 0;
+    transform: translateX(-50px); /* Start position - slides in from left */
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.hero-title-headphones .hero-title-line2 {
+    transition-delay: 0.2s; /* Slight delay for staggered effect */
+}
+
+.hero-description-headphones {
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+    width: 100%;
+    line-height: 1.7;
+    color: #ebe8e8;
+    max-width: 700px; /* Increased width to match container */
+    opacity: 0;
+    transform: translateY(30px); /* Start position - slides in from bottom */
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    transition-delay: 0.4s; /* Delay after title */
+}
+
+/* Text slide-in animations when slide 3 is active */
+.hero-slide-headphones.active .hero-title-headphones .hero-title-line1,
+.hero-slide-headphones.active .hero-title-headphones .hero-title-line2 {
+    opacity: 1;
+    transform: translateX(0); /* Final position */
+}
+
+.hero-slide-headphones.active .hero-description-headphones {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+}
+
+.hero-headphones-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;  /* Changed from flex-end to center, then we'll shift from center */
+    align-items: center;
+    position: relative;
+}
+
+.hero-headphones-image {
+    width: 1250px;
+    height: auto;
+    max-height: 1830px;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 40px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+    position: relative;
+    left: -650px;  /* Moves image left - increase negative value to move more left (e.g., -150px, -200px) */
+    opacity: 0;
+    transform: translateY(-100px); /* Start position - slides in from top */
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+/* Slide-in animation when slide 3 is active */
+.hero-slide-headphones.active .hero-headphones-image {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+}
+
+/* ============================================
+   SLIDE 3 IMAGE POSITION - MANUAL ADJUSTMENT
+   Change translate() or max-width below to move/resize
+   ============================================ */
+
+/* ============================================
+   HERO PRODUCT IMAGE SIZES - DESKTOP
+   Change width and max-height values below to adjust sizes
+   ============================================ */
+
+.product-mouse {
+    top: 10%;
+    left: -5%;
+    width: 300px;          /* Change this to adjust mouse width */
+    height: auto;
+    max-height: 400px;     /* Change this to adjust mouse max height */
+    --mouse-rotate: 65deg;  /* ⬅️ CHANGE THIS VALUE to rotate the mouse position (e.g., -65deg, -45deg, -90deg, 0deg, 45deg) */
+    z-index: 1;
+}
+
+.product-charger {
+    bottom  : 12%;
+    right: 17%;
+    width: 110px;          /* Change this to adjust power bank width */
+    height: auto;
+    max-height: 900px;      /* Change this to adjust power bank max height */
+    --rotate: 10deg;
+}
+
+.product-headphones {
+    top: -30%;
+    right: -12%;
+    width: 600px;          /* Change this to adjust headphones width */
+    height: auto;
+    max-height: 730px;     /* Change this to adjust headphones max height */
+   
+}
+
+.product-earbuds {
+    bottom: -15%;
+    left: 8%;
+    width: 300px;          /* Change this to adjust earbuds width */
+    height: auto;
+    max-height: 800px;      /* Change this to adjust earbuds max height */
+    --rotate: -10deg;
+}
+
+.product-powerbank {
+    bottom: -15%;
+    right: -7%;
+    width: 410px;          /* Change this to adjust power bank width */
+    height: auto;
+    max-height: 900px;      /* Change this to adjust power bank max height */
+    --rotate: 10deg;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 120px 20px 80px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-slide .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero-title-line1,
+.hero-title-line2,
+.hero-title-line3,
+.hero-title-line4 {
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    text-shadow: none;
+    line-height: 1.1;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Text animations for slide 1 - only on first load */
+.hero-slide:first-child:not(.hero-slide-picogo) .hero-title-line1,
+.hero-slide:first-child:not(.hero-slide-picogo) .hero-title-line2,
+.hero-slide:first-child:not(.hero-slide-picogo) .hero-description,
+.hero-slide:first-child:not(.hero-slide-picogo) .hero-buttons {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-slide:first-child:not(.hero-slide-picogo).first-load .hero-title-line1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.hero-slide:first-child:not(.hero-slide-picogo).first-load .hero-title-line2 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.hero-slide:first-child:not(.hero-slide-picogo).first-load .hero-description {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.hero-slide:first-child:not(.hero-slide-picogo).first-load .hero-buttons {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+/* PicoGo slide animations - only on first load */
+.hero-slide-picogo .hero-title-line1,
+.hero-slide-picogo .hero-description,
+.hero-slide-picogo .hero-buttons {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Show text when slide is active - first load animation */
+.hero-slide-picogo.first-load.active .hero-title-line1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.hero-slide-picogo.first-load.active .hero-description {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.hero-slide-picogo.first-load.active .hero-buttons {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+/* Show text when slide is active (even if not first load) */
+.hero-slide-picogo.active .hero-title-line1,
+.hero-slide-picogo.active .hero-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-slide-picogo.active .hero-buttons {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide 1 - PicoGo Series Specific Styles */
+.hero-content-picogo {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8rem;
+}
+
+.hero-title-picogo {
+    margin-bottom: 1rem;
+}
+
+.hero-title-picogo .hero-title-line1 {
+    font-size: 5rem;
+    font-weight: 500;
+    color: #000000;
+    letter-spacing: -0.02em;
+}
+
+.hero-description-picogo {
+    font-size: 1.5rem;
+    color: #000000;
+    font-weight: 400;
+    margin-bottom: 3rem;
+    margin-top: 0;
+    opacity: 1 !important; /* Ensure description is always visible when slide is active */
+}
+
+/* Make description visible when slide is active */
+.hero-slide-picogo.active .hero-description-picogo {
+    opacity: 1 !important;
+}
+
+.hero-buttons-picogo {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-hero-learn {
+    padding: 1rem 3rem;
+    background: linear-gradient(180deg, #f0f0f0 0%, #e0e0e0 100%);
+    border: 2px solid #ff8c42;
+    border-radius: 50px;
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-hero-learn:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+}
+
+/* PicoGo Products Layout */
+.hero-products-picogo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-product-picogo {
+    position: absolute;
+    max-height: 60%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Initial state - products start below */
+.product-charger-67w,
+.product-earbuds,
+.product-mouse,
+.product-headphones {
+    transform: translateY(50px);
+}
+
+.product-powerbank {
+    transform: translateX(-50%) translateY(50px);
+}
+
+.hero-slide-picogo.active .hero-product-picogo {
+    opacity: 1;
+}
+
+/* Preserve transform positioning for products that use translateX */
+.hero-slide-picogo.active .product-powerbank {
+    transform: translateX(-50%) translateY(0);
+}
+
+.hero-slide-picogo.active .product-charger-67w,
+.hero-slide-picogo.active .product-earbuds,
+.hero-slide-picogo.active .product-mouse,
+.hero-slide-picogo.active .product-headphones {
+    transform: translateY(0);
+}
+
+/* Staggered animations for all 5 products */
+.hero-slide-picogo.active .product-charger-67w {
+    transition-delay: 0.2s;
+}
+
+.hero-slide-picogo.active .product-earbuds {
+    transition-delay: 0.35s;
+}
+
+.hero-slide-picogo.active .product-powerbank {
+    transition-delay: 0.5s;
+}
+
+.hero-slide-picogo.active .product-mouse {
+    transition-delay: 0.65s;
+}
+
+.hero-slide-picogo.active .product-headphones {
+    transition-delay: 0.8s;
+}
+
+.hero-slide-picogo:not(.active) .hero-product-picogo {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* ============================================
+   PICOGO PRODUCT POSITIONS - MANUAL ADJUSTMENT
+   Adjust left, bottom, max-height, and transform values below
+   ============================================ */
+
+/* Product 1: Charger 67W */
+.product-charger-67w {
+    max-height: 55%;
+    left: 10%;           /* Horizontal position - adjust as needed (e.g., 5%, 15%, 20%) */
+    bottom: 40%;           /* Vertical position - adjust as needed (e.g., 10%, 5%, 0) */
+    transform-origin: bottom center;
+}
+
+/* Product 2: Earbuds */
+.product-earbuds {
+    max-height: 100%;
+    width: 400px;
+    left: 17%;           /* Horizontal position - adjust as needed */
+    bottom: -10%;           /* Vertical position - adjust as needed */
+    transform-origin: bottom center;
+}
+
+/* Product 3: Power Bank */
+.product-powerbank {
+    max-height: 60%;
+    left: 50%;           /* Horizontal position - adjust as needed (center would be ~50%) */
+    bottom: 0;           /* Vertical position - adjust as needed */
+    transform: translateX(-50%); /* Centers the product at the left position */
+    transform-origin: bottom center;
+}
+
+/* Product 4: Mouse */
+.product-mouse {
+    max-height: 45%;
+    left: 62%;           /* Horizontal position - adjust as needed */
+    top: 40%;           /* Vertical position - adjust as needed */
+    transform-origin: bottom center;
+}
+
+/* Product 5: Headphones */
+.product-headphones {
+    max-height: 55%;
+    left:75%;           /* Horizontal position - adjust as needed */
+    top:14%;            /* Vertical position - adjust as needed */
+    transform-origin: bottom center;
+}
+
+.hero-title-line2,
+.hero-title-line3 {
+    margin-bottom: 0;
+}
+
+.hero-title-line4 {
+    margin-bottom: 0.5rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--text-dark);
+    color: var(--bg-cream);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-dark);
+    border-color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background: var(--text-dark);
+    color: var(--bg-cream);
+    transform: translateY(-3px);
+}
+
+.btn-hero-cta {
+    background: transparent;
+    color: var(--text-dark);
+    border: 2px solid #9ACD32;
+    border-radius: 8px;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+}
+
+.btn-hero-cta:hover {
+    background: #9ACD32;
+    color: var(--text-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(154, 205, 50, 0.3);
+}
+
+/* Scroll Indicator */
+/* Hero Slider Navigation */
+.hero-slider-nav {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 10;
+}
+
+.slider-prev,
+.slider-next {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-dark);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.slider-dots .dot.active {
+    background: var(--text-dark);
+    width: 14px;
+    height: 14px;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.slider-dots .dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    animation: bounce 2s infinite;
+    z-index: 10;
+}
+
+.scroll-arrow {
+    width: 2px;
+    height: 30px;
+    background: var(--text-dark);
+    position: relative;
+}
+
+/* (Legacy hero product float and slide keyframes removed for PicoGo slide)
+   The PicoGo slide now uses simple bottom-to-top transitions defined
+   in the `.hero-product-picogo` and individual `.product-*` rules above. */
+
+.scroll-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--text-dark);
+    border-bottom: 2px solid var(--text-dark);
+    transform: rotate(45deg);
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 80px 0;
+    background: #f5f5f5;
+    background-image: 
+        radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+/* New 2x2 Grid Layout */
+.categories-title-new {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.categories-title-new h2 {
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.categories-grid-new {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.category-card-new {
+    background: #f5f5f5;
+    background-image: 
+        radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 12px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.category-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.category-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.category-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.category-tagline {
+    color: var(--gold-accent);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.category-title-new {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #000000;
+    margin: 0 0 2rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-category-shop {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--gold-accent);
+    color: #000000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: auto;
+    width: fit-content;
+}
+
+.btn-category-shop:hover {
+    background: #e6e600;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 251, 0, 0.5);
+}
+
+/* Banner Section */
+.banner-section {
+    padding: 0;
+    background: #ffffff;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-wrapper {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Cable Products Section */
+.cable-products-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.cable-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cable-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #f5f5f5;
+    aspect-ratio: 1;
+}
+
+.cable-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cable-image-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cable-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cable-card:hover .cable-image {
+    transform: scale(1.05);
+}
+
+/* Earbuds Features Section */
+.earbuds-features-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #e3f2fd 0%, #ffffff 100%);
+}
+
+.earbuds-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.earbuds-feature-card {
+    background: linear-gradient(180deg, #e3f2fd 0%, #ffffff 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.earbuds-feature-card-large {
+    grid-column: 1 / 3;
+}
+
+.earbuds-feature-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.earbuds-feature-content-battery {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.battery-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.earbuds-feature-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000000;
+    margin: 0 0 1rem 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.3;
+}
+
+.earbuds-feature-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+}
+
+.earbuds-feature-image-wrapper {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.earbuds-feature-image {
+    max-width: 100%;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.earbuds-feature-card-large .earbuds-feature-image {
+    max-height: 180px;
+}
+
+.earbuds-feature-content-battery .earbuds-feature-image-wrapper {
+    margin-top: 0;
+    flex: 0 0 auto;
+}
+
+/* Legacy category styles (keeping for backward compatibility) */
+.categories-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.categories-title h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.categories-title .highlight-yellow {
+    color: #FFD700;
+    font-weight: 700;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: 350px 650px;
+    grid-template-rows: repeat(2, 200px);
+    gap: 2rem;
+    max-width: 1020px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: start;
+}
+
+.category-card {
+    text-decoration: none;
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    width: 100%;
+}
+
+/* Different sizes for each category card - explicit grid placement */
+.category-card:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.category-card:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+
+}
+
+.category-card:nth-child(3) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.category-card:nth-child(4) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 2;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.category-image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Cards will inherit width from grid columns */
+
+.category-card:nth-child(1) .category-image,
+.category-card:nth-child(2) .category-image,
+.category-card:nth-child(3) .category-image,
+.category-card:nth-child(4) .category-image {
+    height: 200px;
+    width: 100%;
+}
+
+.category-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(3px) brightness(0.9);
+    z-index: 0;
+}
+
+.category-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+
+.category-overlay {
+    display: none;
+}
+
+.category-name {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    filter: none;
+}
+
+/* Category Background Images */
+.mobile-accessories {
+    background: 
+        linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f0f0f0" width="400" height="300"/><circle cx="200" cy="150" r="80" fill="%23ddd"/><rect x="150" y="100" width="100" height="150" rx="10" fill="%23333"/></svg>');
+    background-size: cover;
+    background-position: center;
+}
+
+.vehicle-accessories {
+    background: 
+        linear-gradient(135deg, rgba(240, 147, 251, 0.8) 0%, rgba(245, 87, 108, 0.8) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f5f5f5" width="400" height="300"/><rect x="100" y="120" width="200" height="100" rx="5" fill="%23ccc"/><circle cx="150" cy="220" r="30" fill="%23333"/><circle cx="250" cy="220" r="30" fill="%23333"/></svg>');
+    background-size: cover;
+    background-position: center;
+}
+
+.computer-accessories {
+    background: 
+        linear-gradient(135deg, rgba(79, 172, 254, 0.8) 0%, rgba(0, 242, 254, 0.8) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23e8e8e8" width="400" height="300"/><rect x="100" y="80" width="200" height="120" rx="5" fill="%23bbb"/><rect x="120" y="200" width="160" height="10" rx="2" fill="%23aaa"/></svg>');
+    background-size: cover;
+    background-position: center;
+}
+
+.lifestyle-accessories {
+    background: 
+        linear-gradient(135deg, rgba(67, 233, 123, 0.8) 0%, rgba(56, 249, 215, 0.8) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f0f0f0" width="400" height="300"/><circle cx="150" cy="150" r="50" fill="%23ddd"/><rect x="250" y="100" width="80" height="100" rx="5" fill="%23ccc"/></svg>');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Sections */
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 3rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.section-title p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Features/Products Grid */
+.features-grid,
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card,
+.product-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-card:hover,
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--text-dark);
+}
+
+.feature-card h3,
+.product-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.feature-card p,
+.product-card p {
+    color: var(--text-secondary);
+}
+
+.feature-icon,
+.product-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.feature-card h3,
+.product-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-light);
+    padding: 60px 0 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--text-dark);
+    color: var(--bg-cream);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+}
+
+.footer-location {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.footer-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll animation classes */
+.scroll-animate {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate.slide-left {
+    transform: translateX(-50px);
+}
+
+.scroll-animate.slide-right {
+    transform: translateX(50px);
+}
+
+.scroll-animate.slide-up {
+    transform: translateY(50px);
+}
+
+.scroll-animate.slide-down {
+    transform: translateY(-50px);
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Slide out animations */
+.scroll-animate.animate-out.slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.scroll-animate.animate-out.slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.scroll-animate.animate-out.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.scroll-animate.animate-out.slide-down {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+/* Staggered animation delays */
+.scroll-animate:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.scroll-animate:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.scroll-animate:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.scroll-animate:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.scroll-animate:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.scroll-animate:nth-child(6) {
+    transition-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-wrapper {
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 72px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--bg-navbar);
+        width: 100%;
+        text-align: center;
+        transition: var(--transition);
+        padding: 2rem 0;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        justify-content: flex-start;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hero-title-line1,
+    .hero-title-line2,
+    .hero-title-line3,
+    .hero-title-line4 {
+        font-size: 2.5rem;
+    }
+
+    /* Categories Grid - Mobile */
+    .categories-grid-new {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .category-card-new {
+        min-height: 350px;
+    }
+
+    .category-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .category-title-new {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .category-image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .category-product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .hero-product {
+        width: 60px;
+        height: 60px;
+        opacity: 0.6;
+    }
+
+    /* ============================================
+       HERO PRODUCT IMAGE SIZES - MOBILE
+       Change width and max-height values below for mobile sizes
+       ============================================ */
+    
+    .product-mouse {
+        width: 80px;           /* Change this for mobile mouse width */
+        max-height: 60px;      /* Change this for mobile mouse max height */
+    }
+
+    .product-charger {
+        width: 60px;           /* Change this for mobile charger width */
+        max-height: 40px;      /* Change this for mobile charger max height */
+    }
+
+    .product-headphones {
+        width: 100px;          /* Change this for mobile headphones width */
+        max-height: 90px;      /* Change this for mobile headphones max height */
+    }
+
+    .product-earbuds {
+        width: 70px;           /* Change this for mobile earbuds width */
+        max-height: 55px;      /* Change this for mobile earbuds max height */
+    }
+
+    .product-powerbank {
+        width: 80px;           /* Change this for mobile power bank width */
+        max-height: 65px;      /* Change this for mobile power bank max height */
+    }
+
+    /* Hero Slider Navigation - Mobile */
+    .hero-slider-nav {
+        bottom: 80px;
+        gap: 1rem;
+    }
+
+    .slider-prev,
+    .slider-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .slider-dots {
+        gap: 0.5rem;
+    }
+
+    .slider-dots .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .slider-dots .dot.active {
+        width: 12px;
+        height: 12px;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .features-grid,
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1.5rem;
+    }
+
+    /* Banner Section - Mobile */
+    .banner-section {
+        padding: 0;
+    }
+
+    .category-card:nth-child(1),
+    .category-card:nth-child(2),
+    .category-card:nth-child(3),
+    .category-card:nth-child(4) {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .category-card:nth-child(1) .category-image,
+    .category-card:nth-child(2) .category-image,
+    .category-card:nth-child(3) .category-image,
+    .category-card:nth-child(4) .category-image {
+        height: 250px;
+    }
+
+    .categories-title h2 {
+        font-size: 2rem;
+    }
+
+    /* Cable Products Section - Mobile */
+    .cable-products-section {
+        padding: 60px 0;
+    }
+
+    .cable-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* Earbuds Features Section - Mobile */
+    .earbuds-features-section {
+        padding: 60px 0;
+    }
+
+    .earbuds-features-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1.5rem;
+    }
+
+    .earbuds-feature-card-large {
+        grid-column: 1;
+    }
+
+    .earbuds-feature-content-battery {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .earbuds-feature-value {
+        font-size: 2.5rem;
+    }
+
+    .earbuds-feature-title {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-main {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+
